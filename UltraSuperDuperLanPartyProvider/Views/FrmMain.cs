@@ -69,10 +69,12 @@ namespace UltraSuperDuperLanPartyProvider
         {
             if (txtGamerName.Text != "" && cbPaid.SelectedItem.ToString() != "")
             {
-                Gamer gamer = new Gamer();
-                gamer.Id = DateTime.Now.Ticks;
-                gamer.Name = txtGamerName.Text;
-                gamer.HasPaid = (cbPaid.SelectedItem.ToString() == "Ja") ? true : false;
+                Gamer gamer = new Gamer
+                {
+                    Id = DateTime.Now.Ticks,
+                    Name = txtGamerName.Text,
+                    HasPaid = (cbPaid.SelectedItem.ToString() == "Ja") ? true : false
+                };
                 gamers.Add(gamer);
                 gamers.Save();
                 gamersbs.ResetBindings(false);

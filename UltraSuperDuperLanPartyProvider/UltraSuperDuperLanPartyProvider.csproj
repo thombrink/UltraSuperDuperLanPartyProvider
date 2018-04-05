@@ -122,6 +122,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Images\512x512.png" />
+    <Content Include="Images\icons8-cancel-48.png" />
+    <Content Include="Images\icons8-ok-48.png" />
     <Content Include="Images\wallpaper.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

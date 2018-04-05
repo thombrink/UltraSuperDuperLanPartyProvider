@@ -15,6 +15,9 @@ namespace UltraSuperDuperLanPartyProvider.Views
         public FrmOverview()
         {
             InitializeComponent();
+
+            //tableLayoutPanel1.Controls.Add(new Label { Dock = DockStyle.Fill, BackColor = Color.RoyalBlue, TextAlign = ContentAlignment.MiddleCenter, Text = "Blauwe team", ForeColor = Color.White }, 0, 0);
+            //tableLayoutPanel1.Controls.Add(new Label { Dock = DockStyle.Fill, BackColor = Color.DarkRed, TextAlign = ContentAlignment.MiddleCenter, Text = "Rode team", ForeColor = Color.White }, 2, 0);
         }
     }
 }
