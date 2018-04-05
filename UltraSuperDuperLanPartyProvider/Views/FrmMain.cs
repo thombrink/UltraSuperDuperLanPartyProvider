@@ -86,18 +86,20 @@ namespace UltraSuperDuperLanPartyProvider
         {
             BarcodeReader bcReader = new BarcodeReader();
             string[] list = bcReader.GetAllParameterTemplateNames();
-            TextResult[] results = bcReader.DecodeBitmap(bitmap, null);
+            TextResult[] results = bcReader.DecodeBitmap(bitmap, "");
 
-            lblWelcome.Text = "";
+            //lblWelcome.Text = "";
             if (results == null)
             {
-                lblWelcome.Text = "Geen barcode herkend!";
+                //lblWelcome.Text = "Geen barcode herkend!";
+                Console.WriteLine("Geen barcode herkend");
                 return;
             }
 
             foreach (TextResult result in results)
             {
-                lblWelcome.Text += result.BarcodeText;
+                //lblWelcome.Text += result.BarcodeText;
+                Console.WriteLine(result.BarcodeText);
             }
         }
 
