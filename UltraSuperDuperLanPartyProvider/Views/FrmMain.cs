@@ -214,7 +214,6 @@ namespace UltraSuperDuperLanPartyProvider
         {
             pnlTop.Visible = false;
             pnlBottom.Visible = false;
-
             timer = new Timer();
             timer.Interval = 2000;
             timer.Tick += Timer_Tick;      
