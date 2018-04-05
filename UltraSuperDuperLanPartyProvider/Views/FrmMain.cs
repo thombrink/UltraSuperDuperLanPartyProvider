@@ -79,12 +79,14 @@ namespace UltraSuperDuperLanPartyProvider
         {
             image = (Bitmap)eventArgs.Frame.Clone();
             pbStream.Image = image;
+            ReadBarcode(image);
         }
 
         private void ReadBarcode(Bitmap bitmap)
         {
             BarcodeReader bcReader = new BarcodeReader();
-            TextResult[] results = bcReader.DecodeBitmap(bitmap, "reader");
+            string[] list = bcReader.GetAllParameterTemplateNames();
+            TextResult[] results = bcReader.DecodeBitmap(bitmap, null);
 
             lblWelcome.Text = "";
             if (results == null)
