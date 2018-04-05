@@ -11,6 +11,7 @@ namespace UltraSuperDuperLanPartyProvider.Interfaces
         void Add(Gamer gamer);
         void Update(Gamer gamer);
         void Remove(long id);
+        Gamer Get(long id);
         List<Gamer> DataSource { get; }
         void Load();
         void Save();

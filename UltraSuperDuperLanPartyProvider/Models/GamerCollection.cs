@@ -44,6 +44,11 @@ namespace UltraSuperDuperLanPartyProvider
             collection.RemoveAll(x => x.Id == id);
         }
 
+        public Gamer Get(long id)
+        {
+            return collection.Where(x => x.Id.ToString().Substring(id.ToString().Length - 3) == id.ToString().Substring(id.ToString().Length - 3)).FirstOrDefault();
+        }
+
         public void Load()
         {
             if (File.Exists(path))
