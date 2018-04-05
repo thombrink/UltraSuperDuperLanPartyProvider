@@ -7,17 +7,44 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using UltraSuperDuperLanPartyProvider.Interfaces;
 
 namespace UltraSuperDuperLanPartyProvider.Views
 {
     public partial class FrmOverview : Form
     {
-        public FrmOverview()
+        private IGamerCollection gamers;
+        private BindingSource blueBs;
+        private BindingSource redBs;
+
+        public FrmOverview(ref IGamerCollection gamers)
         {
             InitializeComponent();
-
-            //tableLayoutPanel1.Controls.Add(new Label { Dock = DockStyle.Fill, BackColor = Color.RoyalBlue, TextAlign = ContentAlignment.MiddleCenter, Text = "Blauwe team", ForeColor = Color.White }, 0, 0);
-            //tableLayoutPanel1.Controls.Add(new Label { Dock = DockStyle.Fill, BackColor = Color.DarkRed, TextAlign = ContentAlignment.MiddleCenter, Text = "Rode team", ForeColor = Color.White }, 2, 0);
+            this.gamers = gamers;
+            this.blueBs = new BindingSource();
+            this.redBs = new BindingSource();
+            InitializeBlue();
+            InitializeRed();
         }
+
+        public void Reset()
+        {
+            InitializeBlue();
+            InitializeRed();
+        }
+
+        private void InitializeBlue()
+        {
+            blueBs.DataSource = gamers.DataSource.Where(x => x.Team == Gamer.TeamType.Blue);
+            dgvBlue.DataSource = blueBs;
+        }
+
+        private void InitializeRed()
+        {
+            redBs.DataSource = gamers.DataSource.Where(x => x.Team == Gamer.TeamType.Red);
+            dgvRed.DataSource = redBs;
+        }
+
+
     }
 }

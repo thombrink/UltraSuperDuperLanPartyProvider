@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Serialization;
 using UltraSuperDuperLanPartyProvider.Interfaces;
+using static UltraSuperDuperLanPartyProvider.Gamer;
 
 namespace UltraSuperDuperLanPartyProvider
 {
@@ -24,12 +25,16 @@ namespace UltraSuperDuperLanPartyProvider
 
         public void Add(Gamer gamer)
         {
+            if(gamer.Team == Gamer.TeamType.None)
+            {
+                gamer.Team = GetColor();
+            }
             collection.Add(gamer);
         }
 
         public void Update(Gamer gamer)
         {
-            foreach (var item in collection.Where(x => x==gamer))
+            foreach (var item in collection.Where(x => x == gamer))
             {
                 item.Name = gamer.Name;
                 item.Nickname = gamer.Nickname;
@@ -72,6 +77,18 @@ namespace UltraSuperDuperLanPartyProvider
             get
             {
                 return collection;
+            }
+        }
+
+        private TeamType GetColor()
+        {
+            if(collection.Count(x => x.Team == Gamer.TeamType.Blue) > collection.Count(x => x.Team == Gamer.TeamType.Red))
+            {
+                return TeamType.Red;
+            }
+            else
+            {
+                return TeamType.Blue;
             }
         }
     }

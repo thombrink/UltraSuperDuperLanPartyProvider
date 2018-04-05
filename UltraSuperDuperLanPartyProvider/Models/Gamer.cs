@@ -13,6 +13,7 @@ namespace UltraSuperDuperLanPartyProvider
         private string nickname;
         private bool isPresent;
         private bool hasPaid;
+        private TeamType team;
 
         public long Id
         {
@@ -79,6 +80,19 @@ namespace UltraSuperDuperLanPartyProvider
             }
         }
 
+        public TeamType Team
+        {
+            get
+            {
+                return team;
+            }
+
+            set
+            {
+                team = value;
+            }
+        }
+
         public Gamer()
         {
             this.Id = 0;
@@ -86,15 +100,24 @@ namespace UltraSuperDuperLanPartyProvider
             this.Nickname = null;
             this.IsPresent = false;
             this.HasPaid = false;
+            this.Team = TeamType.None;
         }
 
-        public Gamer(int id, string name, string nickname, bool isPresent, bool hasPaid)
+        public Gamer(int id, string name, string nickname, bool isPresent, bool hasPaid, TeamType team)
         {
             this.Id = id;
             this.Name = name;
             this.Nickname = nickname;
             this.IsPresent = isPresent;
             this.HasPaid = hasPaid;
+            this.Team = team;
+        }
+
+        public enum TeamType
+        {
+            None = 0,
+            Blue = 1,
+            Red = 2
         }
     }
 }

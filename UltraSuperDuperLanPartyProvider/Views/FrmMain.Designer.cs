@@ -31,6 +31,7 @@
             this.lblWelcome = new System.Windows.Forms.Label();
             this.pnlContent = new System.Windows.Forms.Panel();
             this.pnlConfig = new System.Windows.Forms.Panel();
+            this.btnResetState = new System.Windows.Forms.Button();
             this.cbPaid = new System.Windows.Forms.ComboBox();
             this.lblPaid = new System.Windows.Forms.Label();
             this.lbGamers = new System.Windows.Forms.ListBox();
@@ -44,7 +45,6 @@
             this.btnSaveNickName = new System.Windows.Forms.Button();
             this.lblNickname = new System.Windows.Forms.Label();
             this.txtNickname = new System.Windows.Forms.TextBox();
-            this.btnResetState = new System.Windows.Forms.Button();
             this.pnlContent.SuspendLayout();
             this.pnlConfig.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbStream)).BeginInit();
@@ -60,7 +60,7 @@
             this.lblWelcome.Location = new System.Drawing.Point(10, 24);
             this.lblWelcome.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblWelcome.Name = "lblWelcome";
-            this.lblWelcome.Size = new System.Drawing.Size(449, 129);
+            this.lblWelcome.Size = new System.Drawing.Size(560, 162);
             this.lblWelcome.TabIndex = 0;
             this.lblWelcome.Text = "Welkom!";
             // 
@@ -72,7 +72,7 @@
             this.pnlContent.Location = new System.Drawing.Point(0, 161);
             this.pnlContent.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.pnlContent.Name = "pnlContent";
-            this.pnlContent.Size = new System.Drawing.Size(1096, 298);
+            this.pnlContent.Size = new System.Drawing.Size(1330, 486);
             this.pnlContent.TabIndex = 1;
             // 
             // pnlConfig
@@ -87,12 +87,23 @@
             this.pnlConfig.Controls.Add(this.txtGamerName);
             this.pnlConfig.Dock = System.Windows.Forms.DockStyle.Right;
             this.pnlConfig.Font = new System.Drawing.Font("Palatino Linotype", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pnlConfig.Location = new System.Drawing.Point(742, 0);
+            this.pnlConfig.Location = new System.Drawing.Point(845, 0);
             this.pnlConfig.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.pnlConfig.Name = "pnlConfig";
-            this.pnlConfig.Size = new System.Drawing.Size(354, 298);
+            this.pnlConfig.Size = new System.Drawing.Size(485, 486);
             this.pnlConfig.TabIndex = 2;
             this.pnlConfig.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.pnlConfig_MouseDoubleClick);
+            // 
+            // btnResetState
+            // 
+            this.btnResetState.Location = new System.Drawing.Point(11, 87);
+            this.btnResetState.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.btnResetState.Name = "btnResetState";
+            this.btnResetState.Size = new System.Drawing.Size(330, 27);
+            this.btnResetState.TabIndex = 11;
+            this.btnResetState.Text = "Reset state";
+            this.btnResetState.UseVisualStyleBackColor = true;
+            this.btnResetState.Click += new System.EventHandler(this.btnResetState_Click);
             // 
             // cbPaid
             // 
@@ -102,7 +113,7 @@
             "Nee"});
             this.cbPaid.Location = new System.Drawing.Point(195, 23);
             this.cbPaid.Name = "cbPaid";
-            this.cbPaid.Size = new System.Drawing.Size(146, 26);
+            this.cbPaid.Size = new System.Drawing.Size(146, 30);
             this.cbPaid.TabIndex = 10;
             // 
             // lblPaid
@@ -111,18 +122,18 @@
             this.lblPaid.Location = new System.Drawing.Point(192, 5);
             this.lblPaid.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblPaid.Name = "lblPaid";
-            this.lblPaid.Size = new System.Drawing.Size(56, 18);
+            this.lblPaid.Size = new System.Drawing.Size(71, 23);
             this.lblPaid.TabIndex = 9;
             this.lblPaid.Text = "Betaald:";
             // 
             // lbGamers
             // 
             this.lbGamers.FormattingEnabled = true;
-            this.lbGamers.ItemHeight = 18;
+            this.lbGamers.ItemHeight = 22;
             this.lbGamers.Location = new System.Drawing.Point(12, 126);
             this.lbGamers.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.lbGamers.Name = "lbGamers";
-            this.lbGamers.Size = new System.Drawing.Size(330, 220);
+            this.lbGamers.Size = new System.Drawing.Size(330, 202);
             this.lbGamers.TabIndex = 7;
             this.lbGamers.DoubleClick += new System.EventHandler(this.lbGamers_DoubleClick);
             this.lbGamers.KeyDown += new System.Windows.Forms.KeyEventHandler(this.lbGamers_KeyDown);
@@ -144,7 +155,7 @@
             this.lblGamerName.Location = new System.Drawing.Point(10, 5);
             this.lblGamerName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblGamerName.Name = "lblGamerName";
-            this.lblGamerName.Size = new System.Drawing.Size(48, 18);
+            this.lblGamerName.Size = new System.Drawing.Size(61, 23);
             this.lblGamerName.TabIndex = 4;
             this.lblGamerName.Text = "Naam:";
             // 
@@ -153,7 +164,7 @@
             this.txtGamerName.Location = new System.Drawing.Point(12, 23);
             this.txtGamerName.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.txtGamerName.Name = "txtGamerName";
-            this.txtGamerName.Size = new System.Drawing.Size(176, 25);
+            this.txtGamerName.Size = new System.Drawing.Size(176, 29);
             this.txtGamerName.TabIndex = 3;
             // 
             // pbStream
@@ -165,7 +176,7 @@
             this.pbStream.Location = new System.Drawing.Point(0, 0);
             this.pbStream.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.pbStream.Name = "pbStream";
-            this.pbStream.Size = new System.Drawing.Size(1096, 298);
+            this.pbStream.Size = new System.Drawing.Size(1330, 486);
             this.pbStream.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbStream.TabIndex = 0;
             this.pbStream.TabStop = false;
@@ -179,7 +190,7 @@
             this.txtInput.Location = new System.Drawing.Point(11, 24);
             this.txtInput.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.txtInput.Name = "txtInput";
-            this.txtInput.Size = new System.Drawing.Size(109, 20);
+            this.txtInput.Size = new System.Drawing.Size(109, 23);
             this.txtInput.TabIndex = 3;
             this.txtInput.Text = "Barcode input";
             this.txtInput.TextChanged += new System.EventHandler(this.txtInput_TextChanged);
@@ -193,7 +204,7 @@
             this.pnlTop.Location = new System.Drawing.Point(0, 0);
             this.pnlTop.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.pnlTop.Name = "pnlTop";
-            this.pnlTop.Size = new System.Drawing.Size(1096, 161);
+            this.pnlTop.Size = new System.Drawing.Size(1330, 161);
             this.pnlTop.TabIndex = 2;
             this.pnlTop.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.pnlTop_MouseDoubleClick);
             // 
@@ -204,10 +215,10 @@
             this.pnlBottom.Controls.Add(this.lblNickname);
             this.pnlBottom.Controls.Add(this.txtNickname);
             this.pnlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pnlBottom.Location = new System.Drawing.Point(0, 459);
+            this.pnlBottom.Location = new System.Drawing.Point(0, 647);
             this.pnlBottom.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.pnlBottom.Name = "pnlBottom";
-            this.pnlBottom.Size = new System.Drawing.Size(1096, 164);
+            this.pnlBottom.Size = new System.Drawing.Size(1330, 164);
             this.pnlBottom.TabIndex = 1;
             // 
             // btnSaveNickName
@@ -231,7 +242,7 @@
             this.lblNickname.Location = new System.Drawing.Point(23, 14);
             this.lblNickname.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblNickname.Name = "lblNickname";
-            this.lblNickname.Size = new System.Drawing.Size(357, 50);
+            this.lblNickname.Size = new System.Drawing.Size(459, 63);
             this.lblNickname.TabIndex = 1;
             this.lblNickname.Text = "Wat is je nickname?";
             // 
@@ -241,26 +252,15 @@
             this.txtNickname.Location = new System.Drawing.Point(32, 74);
             this.txtNickname.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.txtNickname.Name = "txtNickname";
-            this.txtNickname.Size = new System.Drawing.Size(878, 49);
+            this.txtNickname.Size = new System.Drawing.Size(878, 60);
             this.txtNickname.TabIndex = 0;
             this.txtNickname.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.txtNickname_PreviewKeyDown);
             // 
-            // btnResetState
-            // 
-            this.btnResetState.Location = new System.Drawing.Point(11, 87);
-            this.btnResetState.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.btnResetState.Name = "btnResetState";
-            this.btnResetState.Size = new System.Drawing.Size(330, 27);
-            this.btnResetState.TabIndex = 11;
-            this.btnResetState.Text = "Reset state";
-            this.btnResetState.UseVisualStyleBackColor = true;
-            this.btnResetState.Click += new System.EventHandler(this.btnResetState_Click);
-            // 
             // FrmMain
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(5F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1096, 623);
+            this.ClientSize = new System.Drawing.Size(1330, 811);
             this.Controls.Add(this.pnlContent);
             this.Controls.Add(this.pnlBottom);
             this.Controls.Add(this.pnlTop);

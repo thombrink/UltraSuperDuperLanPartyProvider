@@ -17,8 +17,9 @@ namespace UltraSuperDuperLanPartyProvider
     {
         private Gamer gamer;
         private IGamerCollection gamers;
-        private BindingSource gamersbs;
+        private BindingSource gamersBs;
         private Timer timer;
+        private FrmOverview fo;
 
 
         public FrmMain()
@@ -28,12 +29,12 @@ namespace UltraSuperDuperLanPartyProvider
 
             gamer = new Gamer();
             gamers = new GamerCollection();
-            gamersbs = new BindingSource();
+            gamersBs = new BindingSource();
       
             InitializeGamersBox();
             SetState(State.Awaiting);
 
-            FrmOverview fo = new FrmOverview();
+            fo = new FrmOverview(ref gamers);
             fo.Show();
         }
 
@@ -52,10 +53,10 @@ namespace UltraSuperDuperLanPartyProvider
 
         private void InitializeGamersBox()
         {
-            gamersbs.DataSource = gamers.DataSource;
+            gamersBs.DataSource = gamers.DataSource;
             lbGamers.DisplayMember = "Name";
             lbGamers.ValueMember = "Id";
-            lbGamers.DataSource = gamersbs;
+            lbGamers.DataSource = gamersBs;
         }
 
         private void InitiateInputBox()
@@ -77,7 +78,8 @@ namespace UltraSuperDuperLanPartyProvider
                 };
                 gamers.Add(gamer);
                 gamers.Save();
-                gamersbs.ResetBindings(false);
+                gamersBs.ResetBindings(false);
+                fo.Reset();
             }
 
             txtGamerName.Text = "";
@@ -93,7 +95,8 @@ namespace UltraSuperDuperLanPartyProvider
                 {
                     gamers.Remove((long)lbGamers.SelectedValue);
                     gamers.Save();
-                    gamersbs.ResetBindings(false);
+                    gamersBs.ResetBindings(false);
+                    fo.Reset();
                 }
             }
         }
