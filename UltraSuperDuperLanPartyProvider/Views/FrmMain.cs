@@ -169,6 +169,7 @@ namespace UltraSuperDuperLanPartyProvider
                 {
                     var img = Code128Rendering.MakeBarcodeImage(lbGamers.SelectedValue.ToString(), 3, true);
                     Clipboard.SetImage(img);
+                    MessageBox.Show("Barcode op het klembord geplaatst!");
                 }
             }
             catch (Exception ex)
