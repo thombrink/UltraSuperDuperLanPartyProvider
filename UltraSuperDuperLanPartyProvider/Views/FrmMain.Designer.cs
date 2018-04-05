@@ -153,6 +153,7 @@
             this.btnSaveCam.TabIndex = 2;
             this.btnSaveCam.Text = "Cam selecteren";
             this.btnSaveCam.UseVisualStyleBackColor = true;
+            this.btnSaveCam.Click += new System.EventHandler(this.btnSaveCam_Click);
             // 
             // cbSelectCam
             // 

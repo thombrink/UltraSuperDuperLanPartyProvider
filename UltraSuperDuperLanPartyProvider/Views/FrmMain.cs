@@ -120,7 +120,7 @@ namespace UltraSuperDuperLanPartyProvider
             }
             foreach (FilterInfo VideoCaptureDevice in videoCaptureDevices)
             {
-                cbSelectCam.Items.Add(VideoCaptureDevice.Name);
+                cbSelectCam.Items.Add(VideoCaptureDevice.MonikerString);
             }
         }
 
@@ -185,6 +185,11 @@ namespace UltraSuperDuperLanPartyProvider
         private void pnlConfig_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             pnlTop_MouseDoubleClick(sender, e);
+        }
+
+        private void btnSaveCam_Click(object sender, EventArgs e)
+        {
+            config.Webcam = cbSelectCam.SelectedItem.ToString();
         }
     }
 }
