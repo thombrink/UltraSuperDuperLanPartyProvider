@@ -198,6 +198,7 @@ namespace UltraSuperDuperLanPartyProvider
             pbStream.Image = Properties.Resources.wallpaper;
             pnlBottom.Visible = false;
             InitiateInputBox();
+            fo.Reset();
         }
 
         private void SetRecognizedState()
@@ -208,6 +209,7 @@ namespace UltraSuperDuperLanPartyProvider
             pnlBottom.Visible = true;
             txtNickname.Focus();
             this.ActiveControl = txtNickname;
+            fo.Reset();
         }
 
         private void SetProcessedState()
@@ -218,6 +220,7 @@ namespace UltraSuperDuperLanPartyProvider
             timer.Interval = 2000;
             timer.Tick += Timer_Tick;      
             timer.Start();
+            fo.Reset();
         }
 
         private void Timer_Tick(object sender, EventArgs e)
