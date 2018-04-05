@@ -40,6 +40,7 @@ namespace UltraSuperDuperLanPartyProvider
             gamersbs = new BindingSource();
 
             StartStream();
+            InitializeCamSelector();
             InitializeGamersBox();
 
             FrmOverview fo = new FrmOverview();
@@ -113,11 +114,14 @@ namespace UltraSuperDuperLanPartyProvider
 
         private void InitializeCamSelector()
         {
+            if(videoCaptureDevices == null)
+            {
+                videoCaptureDevices = new FilterInfoCollection(FilterCategory.VideoInputDevice);
+            }
             foreach (FilterInfo VideoCaptureDevice in videoCaptureDevices)
             {
                 cbSelectCam.Items.Add(VideoCaptureDevice.Name);
             }
-            cbSelectCam.SelectedIndex = 0;
         }
 
         private void InitializeGamersBox()
