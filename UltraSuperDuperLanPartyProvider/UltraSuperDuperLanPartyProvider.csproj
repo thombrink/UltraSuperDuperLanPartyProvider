@@ -77,15 +77,21 @@
     <Compile Include="Models\Config.cs" />
     <Compile Include="Models\Gamer.cs" />
     <Compile Include="Models\GamerCollection.cs" />
-    <Compile Include="FrmMain.cs">
+    <Compile Include="Views\FrmMain.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmMain.Designer.cs">
+    <Compile Include="Views\FrmMain.Designer.cs">
       <DependentUpon>FrmMain.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="FrmMain.resx">
+    <Compile Include="Views\FrmOverview.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\FrmOverview.Designer.cs">
+      <DependentUpon>FrmOverview.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Views\FrmMain.resx">
       <DependentUpon>FrmMain.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -97,6 +103,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Views\FrmOverview.resx">
+      <DependentUpon>FrmOverview.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
