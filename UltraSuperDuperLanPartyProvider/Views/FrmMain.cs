@@ -79,7 +79,7 @@ namespace UltraSuperDuperLanPartyProvider
                 gamers.Add(gamer);
                 gamers.Save();
                 gamersBs.ResetBindings(false);
-                fo.Reset();
+                UpdateOverview();
             }
 
             txtGamerName.Text = "";
@@ -96,7 +96,7 @@ namespace UltraSuperDuperLanPartyProvider
                     gamers.Remove((long)lbGamers.SelectedValue);
                     gamers.Save();
                     gamersBs.ResetBindings(false);
-                    fo.Reset();
+                    UpdateOverview();
                 }
             }
         }
@@ -198,7 +198,7 @@ namespace UltraSuperDuperLanPartyProvider
             pbStream.Image = Properties.Resources.wallpaper;
             pnlBottom.Visible = false;
             InitiateInputBox();
-            fo.Reset();
+            UpdateOverview();
         }
 
         private void SetRecognizedState()
@@ -209,7 +209,7 @@ namespace UltraSuperDuperLanPartyProvider
             pnlBottom.Visible = true;
             txtNickname.Focus();
             this.ActiveControl = txtNickname;
-            fo.Reset();
+            UpdateOverview();
         }
 
         private void SetProcessedState()
@@ -220,7 +220,7 @@ namespace UltraSuperDuperLanPartyProvider
             timer.Interval = 2000;
             timer.Tick += Timer_Tick;      
             timer.Start();
-            fo.Reset();
+            UpdateOverview();
         }
 
         private void Timer_Tick(object sender, EventArgs e)
@@ -266,6 +266,14 @@ namespace UltraSuperDuperLanPartyProvider
         private void btnResetState_Click(object sender, EventArgs e)
         {
             SetState(State.Awaiting);
+        }
+
+        private void UpdateOverview()
+        {
+            if(fo != null)
+            {
+                fo.Reset();
+            }
         }
     }
 }
