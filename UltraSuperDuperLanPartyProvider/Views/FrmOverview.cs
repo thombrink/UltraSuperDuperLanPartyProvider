@@ -23,6 +23,8 @@ namespace UltraSuperDuperLanPartyProvider.Views
             this.gamers = gamers;
             this.blueBs = new BindingSource();
             this.redBs = new BindingSource();
+            this.dgvBlue.AutoGenerateColumns = false;
+            this.dgvRed.AutoGenerateColumns = false;
             InitializeBlue();
             InitializeRed();
         }
