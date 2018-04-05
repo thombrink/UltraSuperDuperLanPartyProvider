@@ -9,19 +9,12 @@ using UltraSuperDuperLanPartyProvider.Interfaces;
 
 namespace UltraSuperDuperLanPartyProvider
 {
-    class GamerCollection : IGamerCollection
+    public class GamerCollection : IGamerCollection
     {
         private List<Gamer> collection;
         private string path;
 
-        public List<Gamer> DataSource
-        {
-            get
-            {
-                return collection;
-            }
-        }
-
+ 
         public GamerCollection()
         {
             collection = new List<Gamer>();
@@ -36,7 +29,13 @@ namespace UltraSuperDuperLanPartyProvider
 
         public void Update(Gamer gamer)
         {
-            throw new NotImplementedException();
+            foreach (var item in collection.Where(x => x==gamer))
+            {
+                item.Name = gamer.Name;
+                item.Nickname = gamer.Nickname;
+                item.HasPaid = gamer.HasPaid;
+                item.IsPresent = gamer.IsPresent;
+            }
         }
 
         public void Remove(long id)
@@ -46,7 +45,7 @@ namespace UltraSuperDuperLanPartyProvider
 
         public Gamer Get(long id)
         {
-            return collection.Where(x => x.Id.ToString().Substring(id.ToString().Length - 3) == id.ToString().Substring(id.ToString().Length - 3)).FirstOrDefault();
+            return collection.Where(x => x.Id == id).FirstOrDefault();
         }
 
         public void Load()
@@ -66,6 +65,14 @@ namespace UltraSuperDuperLanPartyProvider
             FileStream file = File.Create(path);
             writer.Serialize(file, collection);
             file.Close();
+        }
+
+        public List<Gamer> DataSource
+        {
+            get
+            {
+                return collection;
+            }
         }
     }
 }

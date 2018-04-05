@@ -7,10 +7,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Dynamsoft.Barcode;
-using AForge;
-using AForge.Video.DirectShow;
-using AForge.Video;
 using UltraSuperDuperLanPartyProvider.Interfaces;
 using GenCode128;
 using UltraSuperDuperLanPartyProvider.Views;
@@ -19,116 +15,39 @@ namespace UltraSuperDuperLanPartyProvider
 {
     public partial class FrmMain : Form
     {
-        private FilterInfoCollection videoCaptureDevices;
-        private VideoCaptureDevice finalVideoSource;
-        private Bitmap image;
-        private Config config;
         private Gamer gamer;
         private IGamerCollection gamers;
         private BindingSource gamersbs;
+        private Timer timer;
 
 
         public FrmMain()
         {
             InitializeComponent();
-            FormClosing += FrmMain_FormClosing;
             KeyPreview = true;
 
-            config = new Config();
             gamer = new Gamer();
             gamers = new GamerCollection();
             gamersbs = new BindingSource();
-
-            StartStream();
-            InitializeCamSelector();
+      
             InitializeGamersBox();
+            SetState(State.Awaiting);
 
             FrmOverview fo = new FrmOverview();
             fo.Show();
         }
 
-        private void FrmMain_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            StopStream();
-        }
-
-        private void StartStream()
-        {
-            if (!String.IsNullOrEmpty(config.Webcam))
-            {
-                videoCaptureDevices = new FilterInfoCollection(FilterCategory.VideoInputDevice);
-                finalVideoSource = new VideoCaptureDevice(config.Webcam);
-                finalVideoSource.NewFrame += new NewFrameEventHandler(FinalVideoSource_NewFrame);
-                finalVideoSource.Start();
-            }
-            else
-            {
-                MessageBox.Show("Geen webcam geconfigureerd");
-            }
-        }
-
-        private void StopStream()
-        {
-            if (finalVideoSource != null)
-            {
-                finalVideoSource.Stop();
-            }
-        }
-
-        private void FinalVideoSource_NewFrame(object sender, NewFrameEventArgs eventArgs)
-        {
-            image = (Bitmap)eventArgs.Frame.Clone();
-            pbStream.Image = image;
-            ReadBarcode(image);
-        }
-
-        private void ReadBarcode(Bitmap bitmap)
-        {
-            BarcodeReader bcReader = new BarcodeReader();
-            string[] list = bcReader.GetAllParameterTemplateNames();
-            TextResult[] results = bcReader.DecodeBitmap(bitmap, "");
-
-            if (results == null)
-            {
-                Console.WriteLine("Geen barcode herkend");
-                return;
-            }
-
-            foreach (TextResult result in results)
-            {
-                string barcode = result.BarcodeText.Split(',').First();
-                barcode = barcode.Substring(barcode.Length - 3);
-                Gamer gamer = gamers.Get(Convert.ToInt64(barcode));
-                if(gamer != null)
-                {
-                    Console.WriteLine(gamer.Name);
-                }          
-            }
-        }
-
         private void pnlTop_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            if (pnlConfig.Visible)
+            if (this.FormBorderStyle == FormBorderStyle.None)
             {
-                pnlConfig.Visible = false;
+                this.FormBorderStyle = FormBorderStyle.SizableToolWindow;
             }
             else
             {
-                pnlConfig.Visible = true;
+                this.FormBorderStyle = FormBorderStyle.None;
             }
-            pnlConfig.Update();
-        }
-
-        private void InitializeCamSelector()
-        {
-            if(videoCaptureDevices == null)
-            {
-                videoCaptureDevices = new FilterInfoCollection(FilterCategory.VideoInputDevice);
-            }
-            foreach (FilterInfo VideoCaptureDevice in videoCaptureDevices)
-            {
-                cbSelectCam.Items.Add(VideoCaptureDevice.MonikerString);
-            }
+            InitiateInputBox();
         }
 
         private void InitializeGamersBox()
@@ -139,13 +58,21 @@ namespace UltraSuperDuperLanPartyProvider
             lbGamers.DataSource = gamersbs;
         }
 
+        private void InitiateInputBox()
+        {
+            txtInput.Text = "";
+            txtInput.Select();
+            txtInput.Focus();
+        }
+
         private void btnSaveGamer_Click(object sender, EventArgs e)
         {
-            if (txtGamerName.Text != "")
+            if (txtGamerName.Text != "" && cbPaid.SelectedItem.ToString() != "")
             {
                 Gamer gamer = new Gamer();
                 gamer.Id = DateTime.Now.Ticks;
                 gamer.Name = txtGamerName.Text;
+                gamer.HasPaid = (cbPaid.SelectedItem.ToString() == "Ja") ? true : false;
                 gamers.Add(gamer);
                 gamers.Save();
                 gamersbs.ResetBindings(false);
@@ -155,20 +82,17 @@ namespace UltraSuperDuperLanPartyProvider
             txtGamerName.Select();
             txtGamerName.Focus();
         }
-
-        private void btnStartStream_Click(object sender, EventArgs e)
-        {
-            StopStream();
-            StartStream();
-        }
-
         private void lbGamers_KeyDown(object sender, KeyEventArgs e)
         {
             if (lbGamers.SelectedItem != null && e.KeyCode == Keys.Delete)
             {
-                gamers.Remove((long)lbGamers.SelectedValue);
-                gamers.Save();
-                gamersbs.ResetBindings(false);
+                DialogResult dialogResult = MessageBox.Show("Weet je zeker dat je de gamer wilt verwijderen?", "Verwijderen", MessageBoxButtons.YesNo);
+                if (dialogResult == DialogResult.Yes)
+                {
+                    gamers.Remove((long)lbGamers.SelectedValue);
+                    gamers.Save();
+                    gamersbs.ResetBindings(false);
+                }
             }
         }
 
@@ -194,9 +118,141 @@ namespace UltraSuperDuperLanPartyProvider
             pnlTop_MouseDoubleClick(sender, e);
         }
 
-        private void btnSaveCam_Click(object sender, EventArgs e)
+        private void pbStream_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            config.Webcam = cbSelectCam.SelectedItem.ToString();
+            if (pnlConfig.Visible)
+            {
+                pnlConfig.Visible = false;
+            }
+            else
+            {
+                pnlConfig.Visible = true;
+            }
+            pnlConfig.Update();
+        }
+
+        #region Scan input
+
+        private void ProcessInput(string value, bool shorten = false)
+        {
+            try
+            {
+                long id = (shorten) ? Convert.ToInt64(value.Substring(0, 15)) : Convert.ToInt64(value);
+                gamer = gamers.Get(id);
+
+                if (gamer != null)
+                {
+                    gamer.IsPresent = true;
+                    gamers.Update(gamer);
+                    gamers.Save();
+                    SetState(State.Recognized);
+                }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        #endregion Scan input
+
+        #region States
+
+        public enum State
+        {
+            Awaiting = 0,
+            Recognized = 1,
+            Processed = 2
+        }
+        private void SetState(State state)
+        {
+            switch (state)
+            {
+                case State.Awaiting:
+                    SetAwaitingState();
+                    break;
+                case State.Recognized:
+                    SetRecognizedState();
+                    break;
+                case State.Processed:
+                    SetProcessedState();
+                    break;
+                default:
+                    SetAwaitingState();
+                    break;
+            }
+        }
+
+        private void SetAwaitingState()
+        {              
+            pnlTop.Visible = true;      
+            txtNickname.Text = "";
+            lblWelcome.Text = "Hallo daar, scan hier je barcode!";
+            pbStream.SizeMode = PictureBoxSizeMode.StretchImage;
+            pbStream.Image = Properties.Resources.wallpaper;
+            pnlBottom.Visible = false;
+            InitiateInputBox();
+        }
+
+        private void SetRecognizedState()
+        {       
+            lblWelcome.Text = $"{gamer.Name}, mooi dat je er bij bent!";
+            pbStream.SizeMode = PictureBoxSizeMode.CenterImage;
+            pbStream.Image = Properties.Resources.checkmark;
+            pnlBottom.Visible = true;
+            txtNickname.Focus();
+            this.ActiveControl = txtNickname;
+        }
+
+        private void SetProcessedState()
+        {
+            pnlTop.Visible = false;
+            pnlBottom.Visible = false;
+
+            timer = new Timer();
+            timer.Interval = 2000;
+            timer.Tick += Timer_Tick;      
+            timer.Start();
+        }
+
+        private void Timer_Tick(object sender, EventArgs e)
+        {
+            SetState(State.Awaiting);
+            timer.Stop();
+        }
+
+        #endregion States
+
+        private void btnSaveNickName_Click(object sender, EventArgs e)
+        {
+            if (!String.IsNullOrEmpty(txtNickname.Text))
+            {
+                gamer.Nickname = txtNickname.Text;
+                gamers.Update(gamer);
+                gamers.Save();
+                SetState(State.Processed);
+            }
+            else
+            {
+                MessageBox.Show("Je hebt geen nickname ingevuld?");
+            }
+        }
+
+        private void txtNickname_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                btnSaveNickName_Click(sender, e);
+            }
+        }
+
+        private void txtInput_TextChanged(object sender, EventArgs e)
+        {
+            if(!String.IsNullOrEmpty(txtInput.Text) && txtInput.Text.Length >= 15)
+            {
+                ProcessInput(txtInput.Text);
+                txtInput.Text = "";
+            }
         }
     }
 }

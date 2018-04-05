@@ -74,7 +74,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Interfaces\IGamerCollection.cs" />
-    <Compile Include="Models\Config.cs" />
     <Compile Include="Models\Gamer.cs" />
     <Compile Include="Models\GamerCollection.cs" />
     <Compile Include="Views\FrmMain.cs">
@@ -102,6 +101,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="Views\FrmOverview.resx">
       <DependentUpon>FrmOverview.cs</DependentUpon>
@@ -119,6 +119,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Images\512x512.png" />
+    <Content Include="Images\wallpaper.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
