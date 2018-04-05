@@ -13,6 +13,7 @@ using AForge.Video.DirectShow;
 using AForge.Video;
 using UltraSuperDuperLanPartyProvider.Interfaces;
 using GenCode128;
+using UltraSuperDuperLanPartyProvider.Views;
 
 namespace UltraSuperDuperLanPartyProvider
 {
@@ -39,7 +40,10 @@ namespace UltraSuperDuperLanPartyProvider
             gamersbs = new BindingSource();
 
             StartStream();
-            InitializeGamersBox();           
+            InitializeGamersBox();
+
+            FrmOverview fo = new FrmOverview();
+            fo.Show();
         }
 
         private void FrmMain_FormClosing(object sender, FormClosingEventArgs e)
@@ -96,18 +100,15 @@ namespace UltraSuperDuperLanPartyProvider
 
         private void pnlTop_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            if (e.Button == MouseButtons.Right)
+            if (pnlConfig.Visible)
             {
-                if (pnlConfig.Visible)
-                {
-                    pnlConfig.Visible = false;
-                }
-                else
-                {
-                    pnlConfig.Visible = true;
-                }
-                pnlConfig.Update();
+                pnlConfig.Visible = false;
             }
+            else
+            {
+                pnlConfig.Visible = true;
+            }
+            pnlConfig.Update();
         }
 
         private void InitializeCamSelector()
@@ -121,7 +122,7 @@ namespace UltraSuperDuperLanPartyProvider
 
         private void InitializeGamersBox()
         {
-            gamersbs.DataSource = gamers.DataSource;    
+            gamersbs.DataSource = gamers.DataSource;
             lbGamers.DisplayMember = "Name";
             lbGamers.ValueMember = "Id";
             lbGamers.DataSource = gamersbs;
@@ -136,7 +137,7 @@ namespace UltraSuperDuperLanPartyProvider
                 gamer.Name = txtGamerName.Text;
                 gamers.Add(gamer);
                 gamers.Save();
-                gamersbs.ResetBindings(false);    
+                gamersbs.ResetBindings(false);
             }
 
             txtGamerName.Text = "";
@@ -174,6 +175,11 @@ namespace UltraSuperDuperLanPartyProvider
             {
                 MessageBox.Show(this, ex.Message, this.Text);
             }
+        }
+
+        private void pnlConfig_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            pnlTop_MouseDoubleClick(sender, e);
         }
     }
 }
