@@ -44,6 +44,7 @@
             this.btnSaveNickName = new System.Windows.Forms.Button();
             this.lblNickname = new System.Windows.Forms.Label();
             this.txtNickname = new System.Windows.Forms.TextBox();
+            this.btnResetState = new System.Windows.Forms.Button();
             this.pnlContent.SuspendLayout();
             this.pnlConfig.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbStream)).BeginInit();
@@ -77,6 +78,7 @@
             // pnlConfig
             // 
             this.pnlConfig.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnlConfig.Controls.Add(this.btnResetState);
             this.pnlConfig.Controls.Add(this.cbPaid);
             this.pnlConfig.Controls.Add(this.lblPaid);
             this.pnlConfig.Controls.Add(this.lbGamers);
@@ -117,10 +119,10 @@
             // 
             this.lbGamers.FormattingEnabled = true;
             this.lbGamers.ItemHeight = 18;
-            this.lbGamers.Location = new System.Drawing.Point(12, 108);
+            this.lbGamers.Location = new System.Drawing.Point(12, 126);
             this.lbGamers.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.lbGamers.Name = "lbGamers";
-            this.lbGamers.Size = new System.Drawing.Size(330, 238);
+            this.lbGamers.Size = new System.Drawing.Size(330, 220);
             this.lbGamers.TabIndex = 7;
             this.lbGamers.DoubleClick += new System.EventHandler(this.lbGamers_DoubleClick);
             this.lbGamers.KeyDown += new System.Windows.Forms.KeyEventHandler(this.lbGamers_KeyDown);
@@ -243,6 +245,17 @@
             this.txtNickname.TabIndex = 0;
             this.txtNickname.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.txtNickname_PreviewKeyDown);
             // 
+            // btnResetState
+            // 
+            this.btnResetState.Location = new System.Drawing.Point(11, 87);
+            this.btnResetState.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.btnResetState.Name = "btnResetState";
+            this.btnResetState.Size = new System.Drawing.Size(330, 27);
+            this.btnResetState.TabIndex = 11;
+            this.btnResetState.Text = "Reset state";
+            this.btnResetState.UseVisualStyleBackColor = true;
+            this.btnResetState.Click += new System.EventHandler(this.btnResetState_Click);
+            // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(5F, 15F);
@@ -287,6 +300,7 @@
         private System.Windows.Forms.Button btnSaveNickName;
         private System.Windows.Forms.ComboBox cbPaid;
         private System.Windows.Forms.Label lblPaid;
+        private System.Windows.Forms.Button btnResetState;
     }
 }
 

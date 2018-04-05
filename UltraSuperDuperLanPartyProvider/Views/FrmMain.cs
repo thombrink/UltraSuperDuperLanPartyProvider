@@ -129,6 +129,7 @@ namespace UltraSuperDuperLanPartyProvider
                 pnlConfig.Visible = true;
             }
             pnlConfig.Update();
+            InitiateInputBox();
         }
 
         #region Scan input
@@ -253,6 +254,11 @@ namespace UltraSuperDuperLanPartyProvider
                 ProcessInput(txtInput.Text);
                 txtInput.Text = "";
             }
+        }
+
+        private void btnResetState_Click(object sender, EventArgs e)
+        {
+            SetState(State.Awaiting);
         }
     }
 }
