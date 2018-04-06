@@ -223,12 +223,12 @@
             this.bluePaid.FalseValue = "false";
             this.bluePaid.HeaderText = "Betaald";
             this.bluePaid.Name = "bluePaid";
-            this.bluePaid.ReadOnly = true;
             this.bluePaid.TrueValue = "true";
             this.bluePaid.Width = 92;
             // 
             // blueScore
             // 
+            this.blueScore.DataPropertyName = "Score";
             this.blueScore.HeaderText = "Score";
             this.blueScore.Name = "blueScore";
             this.blueScore.Width = 92;
@@ -262,6 +262,7 @@
             // 
             // redScore
             // 
+            this.redScore.DataPropertyName = "Score";
             this.redScore.HeaderText = "Score";
             this.redScore.Name = "redScore";
             this.redScore.Width = 92;

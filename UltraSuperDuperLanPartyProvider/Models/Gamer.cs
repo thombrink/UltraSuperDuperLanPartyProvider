@@ -14,6 +14,7 @@ namespace UltraSuperDuperLanPartyProvider
         private bool isPresent;
         private bool hasPaid;
         private TeamType team;
+        private string score;
 
         public long Id
         {
@@ -98,6 +99,19 @@ namespace UltraSuperDuperLanPartyProvider
             set
             {
                 team = value;
+            }
+        }
+
+        public string Score
+        {
+            get
+            {
+                return score;
+            }
+
+            set
+            {
+                score = value;
             }
         }
 
