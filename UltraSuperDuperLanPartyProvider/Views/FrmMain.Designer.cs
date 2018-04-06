@@ -31,6 +31,7 @@
             this.lblWelcome = new System.Windows.Forms.Label();
             this.pnlContent = new System.Windows.Forms.Panel();
             this.pnlConfig = new System.Windows.Forms.Panel();
+            this.btnRandomizeTeam = new System.Windows.Forms.Button();
             this.btnResetState = new System.Windows.Forms.Button();
             this.cbPaid = new System.Windows.Forms.ComboBox();
             this.lblPaid = new System.Windows.Forms.Label();
@@ -45,7 +46,6 @@
             this.btnSaveNickName = new System.Windows.Forms.Button();
             this.lblNickname = new System.Windows.Forms.Label();
             this.txtNickname = new System.Windows.Forms.TextBox();
-            this.btnRandomizeTeam = new System.Windows.Forms.Button();
             this.pnlContent.SuspendLayout();
             this.pnlConfig.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbStream)).BeginInit();
@@ -56,12 +56,12 @@
             // lblWelcome
             // 
             this.lblWelcome.AutoSize = true;
-            this.lblWelcome.Font = new System.Drawing.Font("Palatino Linotype", 72F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblWelcome.Font = new System.Drawing.Font("Palatino Linotype", 60F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblWelcome.ForeColor = System.Drawing.Color.DarkCyan;
-            this.lblWelcome.Location = new System.Drawing.Point(10, 26);
+            this.lblWelcome.Location = new System.Drawing.Point(14, 27);
             this.lblWelcome.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblWelcome.Name = "lblWelcome";
-            this.lblWelcome.Size = new System.Drawing.Size(449, 129);
+            this.lblWelcome.Size = new System.Drawing.Size(373, 108);
             this.lblWelcome.TabIndex = 0;
             this.lblWelcome.Text = "Welkom!";
             // 
@@ -95,6 +95,17 @@
             this.pnlConfig.Size = new System.Drawing.Size(485, 486);
             this.pnlConfig.TabIndex = 2;
             this.pnlConfig.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.pnlConfig_MouseDoubleClick);
+            // 
+            // btnRandomizeTeam
+            // 
+            this.btnRandomizeTeam.Location = new System.Drawing.Point(11, 87);
+            this.btnRandomizeTeam.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.btnRandomizeTeam.Name = "btnRandomizeTeam";
+            this.btnRandomizeTeam.Size = new System.Drawing.Size(461, 27);
+            this.btnRandomizeTeam.TabIndex = 12;
+            this.btnRandomizeTeam.Text = "Randomize";
+            this.btnRandomizeTeam.UseVisualStyleBackColor = true;
+            this.btnRandomizeTeam.Click += new System.EventHandler(this.btnRandomizeTeam_Click);
             // 
             // btnResetState
             // 
@@ -189,7 +200,7 @@
             this.txtInput.BackColor = System.Drawing.Color.White;
             this.txtInput.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtInput.Cursor = System.Windows.Forms.Cursors.No;
-            this.txtInput.Location = new System.Drawing.Point(11, 27);
+            this.txtInput.Location = new System.Drawing.Point(20, 27);
             this.txtInput.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.txtInput.Name = "txtInput";
             this.txtInput.Size = new System.Drawing.Size(109, 20);
@@ -257,17 +268,6 @@
             this.txtNickname.Size = new System.Drawing.Size(878, 49);
             this.txtNickname.TabIndex = 0;
             this.txtNickname.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.txtNickname_PreviewKeyDown);
-            // 
-            // btnRandomizeTeam
-            // 
-            this.btnRandomizeTeam.Location = new System.Drawing.Point(11, 87);
-            this.btnRandomizeTeam.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.btnRandomizeTeam.Name = "btnRandomizeTeam";
-            this.btnRandomizeTeam.Size = new System.Drawing.Size(461, 27);
-            this.btnRandomizeTeam.TabIndex = 12;
-            this.btnRandomizeTeam.Text = "Randomize";
-            this.btnRandomizeTeam.UseVisualStyleBackColor = true;
-            this.btnRandomizeTeam.Click += new System.EventHandler(this.btnRandomizeTeam_Click);
             // 
             // FrmMain
             // 
