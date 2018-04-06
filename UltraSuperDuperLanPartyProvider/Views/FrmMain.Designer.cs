@@ -57,10 +57,10 @@
             this.lblWelcome.AutoSize = true;
             this.lblWelcome.Font = new System.Drawing.Font("Palatino Linotype", 72F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblWelcome.ForeColor = System.Drawing.Color.DarkCyan;
-            this.lblWelcome.Location = new System.Drawing.Point(10, 24);
+            this.lblWelcome.Location = new System.Drawing.Point(10, 26);
             this.lblWelcome.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblWelcome.Name = "lblWelcome";
-            this.lblWelcome.Size = new System.Drawing.Size(560, 162);
+            this.lblWelcome.Size = new System.Drawing.Size(449, 129);
             this.lblWelcome.TabIndex = 0;
             this.lblWelcome.Text = "Welkom!";
             // 
@@ -113,7 +113,7 @@
             "Nee"});
             this.cbPaid.Location = new System.Drawing.Point(195, 23);
             this.cbPaid.Name = "cbPaid";
-            this.cbPaid.Size = new System.Drawing.Size(146, 30);
+            this.cbPaid.Size = new System.Drawing.Size(146, 26);
             this.cbPaid.TabIndex = 10;
             // 
             // lblPaid
@@ -122,14 +122,14 @@
             this.lblPaid.Location = new System.Drawing.Point(192, 5);
             this.lblPaid.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblPaid.Name = "lblPaid";
-            this.lblPaid.Size = new System.Drawing.Size(71, 23);
+            this.lblPaid.Size = new System.Drawing.Size(56, 18);
             this.lblPaid.TabIndex = 9;
             this.lblPaid.Text = "Betaald:";
             // 
             // lbGamers
             // 
             this.lbGamers.FormattingEnabled = true;
-            this.lbGamers.ItemHeight = 22;
+            this.lbGamers.ItemHeight = 18;
             this.lbGamers.Location = new System.Drawing.Point(12, 126);
             this.lbGamers.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.lbGamers.Name = "lbGamers";
@@ -155,7 +155,7 @@
             this.lblGamerName.Location = new System.Drawing.Point(10, 5);
             this.lblGamerName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblGamerName.Name = "lblGamerName";
-            this.lblGamerName.Size = new System.Drawing.Size(61, 23);
+            this.lblGamerName.Size = new System.Drawing.Size(48, 18);
             this.lblGamerName.TabIndex = 4;
             this.lblGamerName.Text = "Naam:";
             // 
@@ -164,7 +164,7 @@
             this.txtGamerName.Location = new System.Drawing.Point(12, 23);
             this.txtGamerName.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.txtGamerName.Name = "txtGamerName";
-            this.txtGamerName.Size = new System.Drawing.Size(176, 29);
+            this.txtGamerName.Size = new System.Drawing.Size(176, 25);
             this.txtGamerName.TabIndex = 3;
             // 
             // pbStream
@@ -187,13 +187,13 @@
             this.txtInput.BackColor = System.Drawing.Color.White;
             this.txtInput.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtInput.Cursor = System.Windows.Forms.Cursors.No;
-            this.txtInput.Location = new System.Drawing.Point(11, 24);
+            this.txtInput.Location = new System.Drawing.Point(11, 27);
             this.txtInput.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.txtInput.Name = "txtInput";
-            this.txtInput.Size = new System.Drawing.Size(109, 23);
+            this.txtInput.Size = new System.Drawing.Size(109, 20);
             this.txtInput.TabIndex = 3;
             this.txtInput.Text = "Barcode input";
-            this.txtInput.TextChanged += new System.EventHandler(this.txtInput_TextChanged);
+            this.txtInput.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtInput_KeyUp);
             // 
             // pnlTop
             // 
@@ -242,7 +242,7 @@
             this.lblNickname.Location = new System.Drawing.Point(23, 14);
             this.lblNickname.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblNickname.Name = "lblNickname";
-            this.lblNickname.Size = new System.Drawing.Size(459, 63);
+            this.lblNickname.Size = new System.Drawing.Size(357, 50);
             this.lblNickname.TabIndex = 1;
             this.lblNickname.Text = "Wat is je nickname?";
             // 
@@ -252,14 +252,14 @@
             this.txtNickname.Location = new System.Drawing.Point(32, 74);
             this.txtNickname.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.txtNickname.Name = "txtNickname";
-            this.txtNickname.Size = new System.Drawing.Size(878, 60);
+            this.txtNickname.Size = new System.Drawing.Size(878, 49);
             this.txtNickname.TabIndex = 0;
             this.txtNickname.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.txtNickname_PreviewKeyDown);
             // 
             // FrmMain
             // 
             this.AcceptButton = this.btnSaveNickName;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(5F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1330, 811);
             this.Controls.Add(this.pnlContent);

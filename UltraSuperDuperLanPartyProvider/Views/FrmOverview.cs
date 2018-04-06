@@ -37,16 +37,14 @@ namespace UltraSuperDuperLanPartyProvider.Views
 
         private void InitializeBlue()
         {
-            blueBs.DataSource = gamers.DataSource.Where(x => x.Team == Gamer.TeamType.Blue);
+            blueBs.DataSource = gamers.DataSource.Where(x => x.IsPresent == true && x.Team == Gamer.TeamType.Blue);
             dgvBlue.DataSource = blueBs;
-            dgvBlue.ClearSelection();
         }
 
         private void InitializeRed()
         {
-            redBs.DataSource = gamers.DataSource.Where(x => x.Team == Gamer.TeamType.Red);
+            redBs.DataSource = gamers.DataSource.Where(x => x.IsPresent == true && x.Team == Gamer.TeamType.Red);
             dgvRed.DataSource = redBs;
-            dgvRed.ClearSelection();
         }
 
 

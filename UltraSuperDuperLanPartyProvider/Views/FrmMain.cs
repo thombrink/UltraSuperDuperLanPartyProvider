@@ -240,10 +240,6 @@ namespace UltraSuperDuperLanPartyProvider
                 gamers.Save();
                 SetState(State.Processed);
             }
-            else
-            {
-                MessageBox.Show("Je hebt geen nickname ingevuld?");
-            }
         }
 
         private void txtNickname_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
@@ -251,15 +247,6 @@ namespace UltraSuperDuperLanPartyProvider
             if (e.KeyCode == Keys.Enter)
             {
                 btnSaveNickName_Click(sender, e);
-            }
-        }
-
-        private void txtInput_TextChanged(object sender, EventArgs e)
-        {
-            if(!String.IsNullOrEmpty(txtInput.Text) && txtInput.Text.Length >= 15)
-            {
-                ProcessInput(txtInput.Text);
-                txtInput.Text = "";
             }
         }
 
@@ -273,6 +260,15 @@ namespace UltraSuperDuperLanPartyProvider
             if(fo != null)
             {
                 fo.Reset();
+            }
+        }
+
+        private void txtInput_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (txtInput.Text.Length == 18)
+            {
+                ProcessInput(txtInput.Text);
+                txtInput.Text = "";
             }
         }
     }

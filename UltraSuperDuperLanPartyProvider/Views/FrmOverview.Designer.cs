@@ -31,23 +31,20 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.dgvRed = new System.Windows.Forms.DataGridView();
             this.empty = new System.Windows.Forms.DataGridView();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.dgvBlue = new System.Windows.Forms.DataGridView();
-            this.redName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.redNickname = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.redPresent = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.redPaid = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.blueName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.blueNickname = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.blueIsPresent = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.bluePaid = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.redName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.redNickname = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.redPaid = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRed)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.empty)).BeginInit();
@@ -68,7 +65,7 @@
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Font = new System.Drawing.Font("Palatino Linotype", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(6);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 3;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 105F));
@@ -85,33 +82,24 @@
             this.dgvRed.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dgvRed.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvRed.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Palatino Linotype", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvRed.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvRed.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvRed.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.redName,
             this.redNickname,
-            this.redPresent,
             this.redPaid,
             this.dataGridViewTextBoxColumn6});
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Palatino Linotype", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.Transparent;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvRed.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Palatino Linotype", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Transparent;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvRed.DefaultCellStyle = dataGridViewCellStyle1;
             this.dgvRed.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvRed.GridColor = System.Drawing.SystemColors.Control;
             this.dgvRed.Location = new System.Drawing.Point(785, 153);
-            this.dgvRed.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.dgvRed.Margin = new System.Windows.Forms.Padding(6);
             this.dgvRed.Name = "dgvRed";
             this.dgvRed.ReadOnly = true;
             this.dgvRed.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
@@ -131,7 +119,7 @@
             this.empty.Dock = System.Windows.Forms.DockStyle.Right;
             this.empty.GridColor = System.Drawing.SystemColors.Control;
             this.empty.Location = new System.Drawing.Point(745, 153);
-            this.empty.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.empty.Margin = new System.Windows.Forms.Padding(6);
             this.empty.Name = "empty";
             this.empty.ReadOnly = true;
             this.empty.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
@@ -177,33 +165,32 @@
             this.dgvBlue.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dgvBlue.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvBlue.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Palatino Linotype", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.Transparent;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvBlue.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Palatino Linotype", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.Transparent;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvBlue.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvBlue.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvBlue.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.blueName,
             this.blueNickname,
-            this.blueIsPresent,
             this.bluePaid,
             this.dataGridViewTextBoxColumn2});
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Palatino Linotype", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.Transparent;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvBlue.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Palatino Linotype", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.Transparent;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvBlue.DefaultCellStyle = dataGridViewCellStyle3;
             this.dgvBlue.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvBlue.GridColor = System.Drawing.SystemColors.Control;
             this.dgvBlue.Location = new System.Drawing.Point(6, 153);
-            this.dgvBlue.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.dgvBlue.Margin = new System.Windows.Forms.Padding(6);
             this.dgvBlue.Name = "dgvBlue";
             this.dgvBlue.ReadOnly = true;
             this.dgvBlue.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
@@ -211,47 +198,6 @@
             this.dgvBlue.RowTemplate.Height = 40;
             this.dgvBlue.Size = new System.Drawing.Size(727, 758);
             this.dgvBlue.TabIndex = 3;
-            // 
-            // redName
-            // 
-            this.redName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.redName.DataPropertyName = "Name";
-            this.redName.HeaderText = "Speler";
-            this.redName.Name = "redName";
-            this.redName.ReadOnly = true;
-            this.redName.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.redName.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // redNickname
-            // 
-            this.redNickname.DataPropertyName = "Nickname";
-            this.redNickname.HeaderText = "Nickname";
-            this.redNickname.Name = "redNickname";
-            this.redNickname.ReadOnly = true;
-            // 
-            // redPresent
-            // 
-            this.redPresent.DataPropertyName = "isPresent";
-            this.redPresent.FalseValue = "false";
-            this.redPresent.HeaderText = "Aanwezig";
-            this.redPresent.Name = "redPresent";
-            this.redPresent.ReadOnly = true;
-            this.redPresent.TrueValue = "true";
-            // 
-            // redPaid
-            // 
-            this.redPaid.DataPropertyName = "hasPaid";
-            this.redPaid.FalseValue = "false";
-            this.redPaid.HeaderText = "Betaald";
-            this.redPaid.Name = "redPaid";
-            this.redPaid.ReadOnly = true;
-            this.redPaid.TrueValue = "true";
-            // 
-            // dataGridViewTextBoxColumn6
-            // 
-            this.dataGridViewTextBoxColumn6.HeaderText = "Score";
-            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
-            this.dataGridViewTextBoxColumn6.ReadOnly = true;
             // 
             // blueName
             // 
@@ -270,15 +216,6 @@
             this.blueNickname.Name = "blueNickname";
             this.blueNickname.ReadOnly = true;
             // 
-            // blueIsPresent
-            // 
-            this.blueIsPresent.DataPropertyName = "isPresent";
-            this.blueIsPresent.FalseValue = "false";
-            this.blueIsPresent.HeaderText = "Aanwezig";
-            this.blueIsPresent.Name = "blueIsPresent";
-            this.blueIsPresent.ReadOnly = true;
-            this.blueIsPresent.TrueValue = "true";
-            // 
             // bluePaid
             // 
             this.bluePaid.DataPropertyName = "hasPaid";
@@ -294,15 +231,47 @@
             this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
             this.dataGridViewTextBoxColumn2.ReadOnly = true;
             // 
+            // redName
+            // 
+            this.redName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.redName.DataPropertyName = "Name";
+            this.redName.HeaderText = "Speler";
+            this.redName.Name = "redName";
+            this.redName.ReadOnly = true;
+            this.redName.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.redName.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // redNickname
+            // 
+            this.redNickname.DataPropertyName = "Nickname";
+            this.redNickname.HeaderText = "Nickname";
+            this.redNickname.Name = "redNickname";
+            this.redNickname.ReadOnly = true;
+            // 
+            // redPaid
+            // 
+            this.redPaid.DataPropertyName = "hasPaid";
+            this.redPaid.FalseValue = "false";
+            this.redPaid.HeaderText = "Betaald";
+            this.redPaid.Name = "redPaid";
+            this.redPaid.ReadOnly = true;
+            this.redPaid.TrueValue = "true";
+            // 
+            // dataGridViewTextBoxColumn6
+            // 
+            this.dataGridViewTextBoxColumn6.HeaderText = "Score";
+            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            this.dataGridViewTextBoxColumn6.ReadOnly = true;
+            // 
             // FrmOverview
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 27F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1518, 825);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
-            this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.Margin = new System.Windows.Forms.Padding(6);
             this.Name = "FrmOverview";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "FrmOverview";
@@ -326,12 +295,10 @@
         private System.Windows.Forms.DataGridView dgvBlue;
         private System.Windows.Forms.DataGridViewTextBoxColumn redName;
         private System.Windows.Forms.DataGridViewTextBoxColumn redNickname;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn redPresent;
         private System.Windows.Forms.DataGridViewCheckBoxColumn redPaid;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
         private System.Windows.Forms.DataGridViewTextBoxColumn blueName;
         private System.Windows.Forms.DataGridViewTextBoxColumn blueNickname;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn blueIsPresent;
         private System.Windows.Forms.DataGridViewCheckBoxColumn bluePaid;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
     }
