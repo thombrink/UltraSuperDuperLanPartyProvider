@@ -33,10 +33,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.dgvRed = new System.Windows.Forms.DataGridView();
-            this.redName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.redNickname = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.redPaid = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.empty = new System.Windows.Forms.DataGridView();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -44,7 +40,11 @@
             this.blueName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.blueNickname = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bluePaid = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.blueScore = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.redName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.redNickname = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.redPaid = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.redScore = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRed)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.empty)).BeginInit();
@@ -87,7 +87,7 @@
             this.redName,
             this.redNickname,
             this.redPaid,
-            this.dataGridViewTextBoxColumn6});
+            this.redScore});
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Palatino Linotype", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -107,39 +107,6 @@
             this.dgvRed.Size = new System.Drawing.Size(727, 758);
             this.dgvRed.TabIndex = 5;
             this.dgvRed.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvRed_CellEndEdit);
-            // 
-            // redName
-            // 
-            this.redName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.redName.DataPropertyName = "PlayerName";
-            this.redName.HeaderText = "Speler";
-            this.redName.Name = "redName";
-            this.redName.ReadOnly = true;
-            this.redName.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.redName.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // redNickname
-            // 
-            this.redNickname.DataPropertyName = "Nickname";
-            this.redNickname.HeaderText = "Nickname";
-            this.redNickname.Name = "redNickname";
-            this.redNickname.Width = 139;
-            // 
-            // redPaid
-            // 
-            this.redPaid.DataPropertyName = "hasPaid";
-            this.redPaid.FalseValue = "false";
-            this.redPaid.HeaderText = "Betaald";
-            this.redPaid.Name = "redPaid";
-            this.redPaid.ReadOnly = true;
-            this.redPaid.TrueValue = "true";
-            this.redPaid.Width = 92;
-            // 
-            // dataGridViewTextBoxColumn6
-            // 
-            this.dataGridViewTextBoxColumn6.HeaderText = "Score";
-            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
-            this.dataGridViewTextBoxColumn6.Width = 92;
             // 
             // empty
             // 
@@ -211,7 +178,7 @@
             this.blueName,
             this.blueNickname,
             this.bluePaid,
-            this.dataGridViewTextBoxColumn2});
+            this.blueScore});
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Palatino Linotype", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -260,11 +227,44 @@
             this.bluePaid.TrueValue = "true";
             this.bluePaid.Width = 92;
             // 
-            // dataGridViewTextBoxColumn2
+            // blueScore
             // 
-            this.dataGridViewTextBoxColumn2.HeaderText = "Score";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.Width = 92;
+            this.blueScore.HeaderText = "Score";
+            this.blueScore.Name = "blueScore";
+            this.blueScore.Width = 92;
+            // 
+            // redName
+            // 
+            this.redName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.redName.DataPropertyName = "PlayerName";
+            this.redName.HeaderText = "Speler";
+            this.redName.Name = "redName";
+            this.redName.ReadOnly = true;
+            this.redName.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.redName.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // redNickname
+            // 
+            this.redNickname.DataPropertyName = "Nickname";
+            this.redNickname.HeaderText = "Nickname";
+            this.redNickname.Name = "redNickname";
+            this.redNickname.Width = 139;
+            // 
+            // redPaid
+            // 
+            this.redPaid.DataPropertyName = "hasPaid";
+            this.redPaid.FalseValue = "false";
+            this.redPaid.HeaderText = "Betaald";
+            this.redPaid.Name = "redPaid";
+            this.redPaid.ReadOnly = true;
+            this.redPaid.TrueValue = "true";
+            this.redPaid.Width = 92;
+            // 
+            // redScore
+            // 
+            this.redScore.HeaderText = "Score";
+            this.redScore.Name = "redScore";
+            this.redScore.Width = 92;
             // 
             // FrmOverview
             // 
@@ -298,10 +298,10 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn redName;
         private System.Windows.Forms.DataGridViewTextBoxColumn redNickname;
         private System.Windows.Forms.DataGridViewCheckBoxColumn redPaid;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn redScore;
         private System.Windows.Forms.DataGridViewTextBoxColumn blueName;
         private System.Windows.Forms.DataGridViewTextBoxColumn blueNickname;
         private System.Windows.Forms.DataGridViewCheckBoxColumn bluePaid;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn blueScore;
     }
 }

@@ -53,12 +53,44 @@ namespace UltraSuperDuperLanPartyProvider.Views
 
         private void dgvBlue_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
+            if (dgvBlue[e.ColumnIndex, e.RowIndex].OwningColumn.Name == "blueScore")
+            {
+                string value = dgvBlue[e.ColumnIndex, e.RowIndex].Value.ToString();
+                if (value.Contains("+"))
+                {
+                    try
+                    {
+                        value = (Convert.ToInt32(value.Split('+')[0]) + Convert.ToInt32(value.Split('+')[1])).ToString();
+                        dgvBlue[e.ColumnIndex, e.RowIndex].Value = value;
+                    }
+                    catch (Exception ex)
+                    {
+                        blueBs.CancelEdit();
+                    }
+                }
+            }
             blueBs.EndEdit();
             gamers.Save();
         }
 
         private void dgvRed_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
+            if (dgvRed[e.ColumnIndex, e.RowIndex].OwningColumn.Name == "redScore")
+            {
+                string value = dgvRed[e.ColumnIndex, e.RowIndex].Value.ToString();
+                if (value.Contains("+"))
+                {
+                    try
+                    {
+                        value = (Convert.ToInt32(value.Split('+')[0]) + Convert.ToInt32(value.Split('+')[1])).ToString();
+                        dgvRed[e.ColumnIndex, e.RowIndex].Value = value;
+                    }
+                    catch (Exception ex)
+                    {
+                        redBs.CancelEdit();
+                    }
+                }
+            }
             redBs.EndEdit();
             gamers.Save();
         }
