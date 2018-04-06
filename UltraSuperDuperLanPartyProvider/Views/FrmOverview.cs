@@ -51,6 +51,16 @@ namespace UltraSuperDuperLanPartyProvider.Views
             dgvRed.DataSource = redBs;
         }
 
+        private void dgvBlue_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        {
+            blueBs.EndEdit();
+            gamers.Save();
+        }
 
+        private void dgvRed_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        {
+            redBs.EndEdit();
+            gamers.Save();
+        }
     }
 }

@@ -27,6 +27,7 @@ namespace UltraSuperDuperLanPartyProvider
         {
             InitializeComponent();
             KeyPreview = true;
+            FormClosing += FrmMain_FormClosing;
 
             gamer = new Gamer();
             gamers = new GamerCollection();
@@ -35,8 +36,12 @@ namespace UltraSuperDuperLanPartyProvider
             InitializeGamersBox();
             SetState(State.Awaiting);
 
-            fo = new FrmOverview(ref gamers);
-            fo.Show();
+            UpdateOverview();
+        }
+
+        private void FrmMain_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            gamers.Save();
         }
 
         private void pnlTop_MouseDoubleClick(object sender, MouseEventArgs e)
@@ -151,7 +156,7 @@ namespace UltraSuperDuperLanPartyProvider
                 {
                     State state = State.Awaiting;
 
-                    if(gamer.IsPresent)
+                    if (gamer.IsPresent)
                     {
                         gamer.IsPresent = false;
                     }
@@ -160,7 +165,7 @@ namespace UltraSuperDuperLanPartyProvider
                         gamer.IsPresent = true;
                     }
 
-                    if(String.IsNullOrEmpty(gamer.Nickname) && gamer.IsPresent)
+                    if (String.IsNullOrEmpty(gamer.Nickname) && gamer.IsPresent)
                     {
                         state = State.Recognized;
                     }
@@ -255,7 +260,7 @@ namespace UltraSuperDuperLanPartyProvider
 
         private void btnSaveNickName_Click(object sender, EventArgs e)
         {
-            if(txtNickname.Text == lastId)
+            if (txtNickname.Text == lastId)
             {
                 txtNickname.Text = "";
             }
@@ -279,13 +284,20 @@ namespace UltraSuperDuperLanPartyProvider
         private void btnResetState_Click(object sender, EventArgs e)
         {
             SetState(State.Awaiting);
+            UpdateOverview();
+
         }
 
         private void UpdateOverview()
         {
-            if (fo != null)
+            if (fo != null && !fo.IsDisposed)
             {
                 fo.Reset();
+            }
+            else
+            {
+                fo = new FrmOverview(ref gamers);
+                fo.Show();
             }
         }
 
