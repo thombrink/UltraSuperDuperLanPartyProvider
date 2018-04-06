@@ -271,5 +271,11 @@ namespace UltraSuperDuperLanPartyProvider
                 txtInput.Text = "";
             }
         }
+
+        private void btnRandomizeTeam_Click(object sender, EventArgs e)
+        {
+            gamers.RandomizeTeams();
+            UpdateOverview();
+        }
     }
 }

@@ -41,6 +41,14 @@ namespace UltraSuperDuperLanPartyProvider
             }
         }
 
+        public string PLayerName
+        {
+            get
+            {
+                return Name;
+            }
+        }
+
         public string Nickname
         {
             get

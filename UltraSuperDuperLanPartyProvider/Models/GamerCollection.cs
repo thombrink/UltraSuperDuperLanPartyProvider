@@ -91,5 +91,22 @@ namespace UltraSuperDuperLanPartyProvider
                 return TeamType.Blue;
             }
         }
+
+        public void RandomizeTeams()
+        {
+            List<int> usedIndexes = new List<int>();
+            Random r = new Random();
+
+            for(int i=0; i< collection.Count; i++)
+            {
+                int index = 0;
+                while (usedIndexes.Contains(index))
+                {
+                    index = r.Next(0, collection.Count);
+                }
+                collection[index].Team = GetColor();
+                usedIndexes.Add(index);
+            }
+        }
     }
 }

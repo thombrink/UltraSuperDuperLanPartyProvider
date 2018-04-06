@@ -45,6 +45,7 @@
             this.btnSaveNickName = new System.Windows.Forms.Button();
             this.lblNickname = new System.Windows.Forms.Label();
             this.txtNickname = new System.Windows.Forms.TextBox();
+            this.btnRandomizeTeam = new System.Windows.Forms.Button();
             this.pnlContent.SuspendLayout();
             this.pnlConfig.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbStream)).BeginInit();
@@ -78,6 +79,7 @@
             // pnlConfig
             // 
             this.pnlConfig.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnlConfig.Controls.Add(this.btnRandomizeTeam);
             this.pnlConfig.Controls.Add(this.btnResetState);
             this.pnlConfig.Controls.Add(this.cbPaid);
             this.pnlConfig.Controls.Add(this.lblPaid);
@@ -96,10 +98,10 @@
             // 
             // btnResetState
             // 
-            this.btnResetState.Location = new System.Drawing.Point(11, 87);
+            this.btnResetState.Location = new System.Drawing.Point(13, 129);
             this.btnResetState.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.btnResetState.Name = "btnResetState";
-            this.btnResetState.Size = new System.Drawing.Size(330, 27);
+            this.btnResetState.Size = new System.Drawing.Size(461, 27);
             this.btnResetState.TabIndex = 11;
             this.btnResetState.Text = "Reset state";
             this.btnResetState.UseVisualStyleBackColor = true;
@@ -111,15 +113,15 @@
             this.cbPaid.Items.AddRange(new object[] {
             "Ja",
             "Nee"});
-            this.cbPaid.Location = new System.Drawing.Point(195, 23);
+            this.cbPaid.Location = new System.Drawing.Point(240, 22);
             this.cbPaid.Name = "cbPaid";
-            this.cbPaid.Size = new System.Drawing.Size(146, 26);
+            this.cbPaid.Size = new System.Drawing.Size(232, 26);
             this.cbPaid.TabIndex = 10;
             // 
             // lblPaid
             // 
             this.lblPaid.AutoSize = true;
-            this.lblPaid.Location = new System.Drawing.Point(192, 5);
+            this.lblPaid.Location = new System.Drawing.Point(237, 5);
             this.lblPaid.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblPaid.Name = "lblPaid";
             this.lblPaid.Size = new System.Drawing.Size(56, 18);
@@ -130,10 +132,10 @@
             // 
             this.lbGamers.FormattingEnabled = true;
             this.lbGamers.ItemHeight = 18;
-            this.lbGamers.Location = new System.Drawing.Point(12, 126);
+            this.lbGamers.Location = new System.Drawing.Point(12, 162);
             this.lbGamers.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.lbGamers.Name = "lbGamers";
-            this.lbGamers.Size = new System.Drawing.Size(330, 202);
+            this.lbGamers.Size = new System.Drawing.Size(461, 310);
             this.lbGamers.TabIndex = 7;
             this.lbGamers.DoubleClick += new System.EventHandler(this.lbGamers_DoubleClick);
             this.lbGamers.KeyDown += new System.Windows.Forms.KeyEventHandler(this.lbGamers_KeyDown);
@@ -143,7 +145,7 @@
             this.btnSaveGamer.Location = new System.Drawing.Point(12, 54);
             this.btnSaveGamer.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.btnSaveGamer.Name = "btnSaveGamer";
-            this.btnSaveGamer.Size = new System.Drawing.Size(330, 27);
+            this.btnSaveGamer.Size = new System.Drawing.Size(461, 27);
             this.btnSaveGamer.TabIndex = 5;
             this.btnSaveGamer.Text = "Gamer toevoegen";
             this.btnSaveGamer.UseVisualStyleBackColor = true;
@@ -164,7 +166,7 @@
             this.txtGamerName.Location = new System.Drawing.Point(12, 23);
             this.txtGamerName.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.txtGamerName.Name = "txtGamerName";
-            this.txtGamerName.Size = new System.Drawing.Size(176, 25);
+            this.txtGamerName.Size = new System.Drawing.Size(223, 25);
             this.txtGamerName.TabIndex = 3;
             // 
             // pbStream
@@ -256,6 +258,17 @@
             this.txtNickname.TabIndex = 0;
             this.txtNickname.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.txtNickname_PreviewKeyDown);
             // 
+            // btnRandomizeTeam
+            // 
+            this.btnRandomizeTeam.Location = new System.Drawing.Point(11, 87);
+            this.btnRandomizeTeam.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.btnRandomizeTeam.Name = "btnRandomizeTeam";
+            this.btnRandomizeTeam.Size = new System.Drawing.Size(461, 27);
+            this.btnRandomizeTeam.TabIndex = 12;
+            this.btnRandomizeTeam.Text = "Randomize";
+            this.btnRandomizeTeam.UseVisualStyleBackColor = true;
+            this.btnRandomizeTeam.Click += new System.EventHandler(this.btnRandomizeTeam_Click);
+            // 
             // FrmMain
             // 
             this.AcceptButton = this.btnSaveNickName;
@@ -302,6 +315,7 @@
         private System.Windows.Forms.ComboBox cbPaid;
         private System.Windows.Forms.Label lblPaid;
         private System.Windows.Forms.Button btnResetState;
+        private System.Windows.Forms.Button btnRandomizeTeam;
     }
 }
 

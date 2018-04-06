@@ -92,7 +92,7 @@
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Palatino Linotype", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Transparent;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.ControlText;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvRed.DefaultCellStyle = dataGridViewCellStyle1;
@@ -183,7 +183,7 @@
             dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Palatino Linotype", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.Transparent;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.ControlText;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvBlue.DefaultCellStyle = dataGridViewCellStyle3;
@@ -202,11 +202,11 @@
             // blueName
             // 
             this.blueName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.blueName.DataPropertyName = "Name";
+            this.blueName.DataPropertyName = "PlayerName";
             this.blueName.HeaderText = "Speler";
             this.blueName.Name = "blueName";
             this.blueName.ReadOnly = true;
-            this.blueName.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.blueName.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.blueName.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // blueNickname
@@ -234,11 +234,11 @@
             // redName
             // 
             this.redName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.redName.DataPropertyName = "Name";
+            this.redName.DataPropertyName = "PlayerName";
             this.redName.HeaderText = "Speler";
             this.redName.Name = "redName";
             this.redName.ReadOnly = true;
-            this.redName.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.redName.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.redName.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // redNickname
