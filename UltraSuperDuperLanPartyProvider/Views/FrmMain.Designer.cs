@@ -233,6 +233,7 @@
             this.pnlBottom.Name = "pnlBottom";
             this.pnlBottom.Size = new System.Drawing.Size(1330, 164);
             this.pnlBottom.TabIndex = 1;
+            this.pnlBottom.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.pnlBottom_MouseDoubleClick);
             // 
             // btnSaveNickName
             // 

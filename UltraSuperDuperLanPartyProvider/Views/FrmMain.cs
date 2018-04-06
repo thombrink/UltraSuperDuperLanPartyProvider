@@ -316,5 +316,13 @@ namespace UltraSuperDuperLanPartyProvider
             gamers.RandomizeTeams();
             UpdateOverview();
         }
+
+        private void pnlBottom_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            if(e.Button == MouseButtons.Right)
+            {
+                SetState(State.Awaiting);
+            }
+        }
     }
 }
