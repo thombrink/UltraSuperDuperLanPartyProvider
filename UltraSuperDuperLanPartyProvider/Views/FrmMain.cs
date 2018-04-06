@@ -148,10 +148,17 @@ namespace UltraSuperDuperLanPartyProvider
 
                 if (gamer != null)
                 {
-                    gamer.IsPresent = true;
+                    gamer.IsPresent = (gamer.IsPresent) ? true : false;                
                     gamers.Update(gamer);
                     gamers.Save();
-                    SetState(State.Recognized);
+                    if (String.IsNullOrEmpty(gamer.Nickname))
+                    {
+                        SetState(State.Recognized);
+                    }
+                    else
+                    {
+                        SetState(State.Processed);
+                    }
                 }
             }
             catch(Exception ex)
