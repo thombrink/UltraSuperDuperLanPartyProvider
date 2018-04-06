@@ -20,6 +20,7 @@ namespace UltraSuperDuperLanPartyProvider
         private BindingSource gamersBs;
         private Timer timer;
         private FrmOverview fo;
+        private string lastId;
 
 
         public FrmMain()
@@ -30,7 +31,7 @@ namespace UltraSuperDuperLanPartyProvider
             gamer = new Gamer();
             gamers = new GamerCollection();
             gamersBs = new BindingSource();
-      
+
             InitializeGamersBox();
             SetState(State.Awaiting);
 
@@ -148,20 +149,32 @@ namespace UltraSuperDuperLanPartyProvider
 
                 if (gamer != null)
                 {
-                    gamer.IsPresent = (gamer.IsPresent) ? true : false;                
-                    gamers.Update(gamer);
-                    gamers.Save();
-                    if (String.IsNullOrEmpty(gamer.Nickname))
+                    State state = State.Awaiting;
+
+                    if(gamer.IsPresent)
                     {
-                        SetState(State.Recognized);
+                        gamer.IsPresent = false;
                     }
                     else
                     {
-                        SetState(State.Processed);
+                        gamer.IsPresent = true;
                     }
+
+                    if(String.IsNullOrEmpty(gamer.Nickname) && gamer.IsPresent)
+                    {
+                        state = State.Recognized;
+                    }
+                    else
+                    {
+                        state = State.Processed;
+                    }
+                    gamers.Update(gamer);
+                    gamers.Save();
+                    SetState(state);
+                    UpdateOverview();
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
@@ -197,8 +210,8 @@ namespace UltraSuperDuperLanPartyProvider
         }
 
         private void SetAwaitingState()
-        {              
-            pnlTop.Visible = true;      
+        {
+            pnlTop.Visible = true;
             txtNickname.Text = "";
             lblWelcome.Text = "Hallo daar, scan hier je barcode!";
             pbStream.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -209,7 +222,7 @@ namespace UltraSuperDuperLanPartyProvider
         }
 
         private void SetRecognizedState()
-        {       
+        {
             lblWelcome.Text = $"{gamer.Name}, mooi dat je er bij bent!";
             pbStream.SizeMode = PictureBoxSizeMode.CenterImage;
             pbStream.Image = Properties.Resources.checkmark;
@@ -221,11 +234,13 @@ namespace UltraSuperDuperLanPartyProvider
 
         private void SetProcessedState()
         {
+            pbStream.SizeMode = PictureBoxSizeMode.CenterImage;
+            pbStream.Image = Properties.Resources.checkmark;
             pnlTop.Visible = false;
             pnlBottom.Visible = false;
             timer = new Timer();
             timer.Interval = 2000;
-            timer.Tick += Timer_Tick;      
+            timer.Tick += Timer_Tick;
             timer.Start();
             UpdateOverview();
         }
@@ -240,6 +255,10 @@ namespace UltraSuperDuperLanPartyProvider
 
         private void btnSaveNickName_Click(object sender, EventArgs e)
         {
+            if(txtNickname.Text == lastId)
+            {
+                txtNickname.Text = "";
+            }
             if (!String.IsNullOrEmpty(txtNickname.Text))
             {
                 gamer.Nickname = txtNickname.Text;
@@ -264,7 +283,7 @@ namespace UltraSuperDuperLanPartyProvider
 
         private void UpdateOverview()
         {
-            if(fo != null)
+            if (fo != null)
             {
                 fo.Reset();
             }
@@ -275,6 +294,7 @@ namespace UltraSuperDuperLanPartyProvider
             if (txtInput.Text.Length == 18)
             {
                 ProcessInput(txtInput.Text);
+                lastId = txtInput.Text;
                 txtInput.Text = "";
             }
         }
